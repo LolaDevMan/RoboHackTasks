@@ -1,7 +1,5 @@
 import numpy as np
 import cv2
-import serial
-import time
 
 flag1,flag2,flag3,c1=0,0,0,0
 
