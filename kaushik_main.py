@@ -38,135 +38,131 @@ kernal = np.ones((5, 5), "uint8")
 # For red color
 red_mask = cv2.dilate(red_mask, kernal)
 res_red = cv2.bitwise_and(img, img,
-                          mask=red_mask)
+						  mask=red_mask)
 
 # For green color
 green_mask = cv2.dilate(green_mask, kernal)
 res_green = cv2.bitwise_and(img, img,
-                            mask=green_mask)
+							mask=green_mask)
 
 # For blue color
 blue_mask = cv2.dilate(blue_mask, kernal)
 res_blue = cv2.bitwise_and(img, img,
-                           mask=blue_mask)
+						   mask=blue_mask)
 # Yellow
 yellow_mask = cv2.dilate(yellow_mask, kernal)
 res_yellow = cv2.bitwise_and(img, img,
-                             mask=yellow_mask)
+							 mask=yellow_mask)
 
 # orange
 orange_mask = cv2.dilate(orange_mask, kernal)
 res_orange = cv2.bitwise_and(img, img,
-                             mask=orange_mask)
+							 mask=orange_mask)
 
 # White
 white_mask = cv2.dilate(white_mask, kernal)
 res_white = cv2.bitwise_and(img, img,
-                            mask=white_mask)
+							mask=white_mask)
 
 # Creating contour to track red color
 contours, hierarchy = cv2.findContours(red_mask,
-                                       cv2.RETR_TREE,
-                                       cv2.CHAIN_APPROX_SIMPLE)
+									   cv2.RETR_TREE,
+									   cv2.CHAIN_APPROX_SIMPLE)
 
 for pic, contour in enumerate(contours):
-    area = cv2.contourArea(contour)
-    if (area > 300):
-        x, y, w, h = cv2.boundingRect(contour)
-        img = cv2.rectangle(img, (x, y),
-                            (x + w, y + h),
-                            (0, 0, 255), 2)
+	area = cv2.contourArea(contour)
+	if (area > 300):
+		x, y, w, h = cv2.boundingRect(contour)
+		img = cv2.rectangle(img, (x, y),
+							(x + w, y + h),
+							(0, 0, 255), 2)
 
-        cv2.putText(img, "Red", (x, y),
-                    cv2.FONT_HERSHEY_SIMPLEX, 1.0,
-                    (0, 0, 255))
+		cv2.putText(img, "Red", (x, y),
+					cv2.FONT_HERSHEY_SIMPLEX, 1.0,
+					(0, 0, 255))
 
 # contour for yellow
 contours, hierarchy = cv2.findContours(yellow_mask,
-                                       cv2.RETR_TREE,
-                                       cv2.CHAIN_APPROX_SIMPLE)
+									   cv2.RETR_TREE,
+									   cv2.CHAIN_APPROX_SIMPLE)
 
 
 for pic, contour in enumerate(contours):
-    area = cv2.contourArea(contour)
-    if (area > 1000):
-        x, y, w, h = cv2.boundingRect(contour)
-        img = cv2.rectangle(img, (x, y),
-                            (x + w, y + h),
-                            (0, 0, 255), 2)
+	area = cv2.contourArea(contour)
+	if (area > 1000):
+		x, y, w, h = cv2.boundingRect(contour)
+		img = cv2.rectangle(img, (x, y),
+							(x + w, y + h),
+							(0, 0, 255), 2)
 
-        cv2.putText(img, "Yellow", (x, y),
-                    cv2.FONT_HERSHEY_SIMPLEX, 1.0,
-                    (0, 0, 255))
+		cv2.putText(img, "Yellow", (x, y),
+					cv2.FONT_HERSHEY_SIMPLEX, 1.0,
+					(0, 0, 255))
 
 # contour for green
 contours, hierarchy = cv2.findContours(green_mask,
-                                       cv2.RETR_TREE,
-                                       cv2.CHAIN_APPROX_SIMPLE)
+									   cv2.RETR_TREE,
+									   cv2.CHAIN_APPROX_SIMPLE)
 
 for pic, contour in enumerate(contours):
-    area = cv2.contourArea(contour)
-    if (area > 300):
-        x, y, w, h = cv2.boundingRect(contour)
-        img = cv2.rectangle(img, (x, y),
-                            (x + w, y + h),
-                            (0, 0, 255), 2)
+	area = cv2.contourArea(contour)
+	if (area > 300):
+		x, y, w, h = cv2.boundingRect(contour)
+		img = cv2.rectangle(img, (x, y),
+							(x + w, y + h),
+							(0, 0, 255), 2)
 
-        cv2.putText(img, "Green", (x, y),
-                    cv2.FONT_HERSHEY_SIMPLEX,
-                    1.0, (0, 255, 0))
+		cv2.putText(img, "Green", (x, y),
+					cv2.FONT_HERSHEY_SIMPLEX,
+					1.0, (0, 255, 0))
 
 # contour for blue
 contours, hierarchy = cv2.findContours(blue_mask,
-                                       cv2.RETR_TREE,
-                                       cv2.CHAIN_APPROX_SIMPLE)
+									   cv2.RETR_TREE,
+									   cv2.CHAIN_APPROX_SIMPLE)
 for pic, contour in enumerate(contours):
-    area = cv2.contourArea(contour)
-    if (area > 1000):
-        x, y, w, h = cv2.boundingRect(contour)
-        img = cv2.rectangle(img, (x, y),
-                            (x + w, y + h),
-                            (0, 0, 255), 2)
+	area = cv2.contourArea(contour)
+	if (area > 1000):
+		x, y, w, h = cv2.boundingRect(contour)
+		img = cv2.rectangle(img, (x, y),
+							(x + w, y + h),
+							(0, 0, 255), 2)
 
-        cv2.putText(img, "Blue", (x, y),
-                    cv2.FONT_HERSHEY_SIMPLEX,
-                    1.0, (255, 0, 0))
+		cv2.putText(img, "Blue", (x, y),
+					cv2.FONT_HERSHEY_SIMPLEX,
+					1.0, (255, 0, 0))
 
 # contour for orange
 contours, hierarchy = cv2.findContours(orange_mask,
-                                       cv2.RETR_TREE,
-                                       cv2.CHAIN_APPROX_SIMPLE)
+									   cv2.RETR_TREE,
+									   cv2.CHAIN_APPROX_SIMPLE)
 for pic, contour in enumerate(contours):
-    area = cv2.contourArea(contour)
-    if (area > 1000):
-        x, y, w, h = cv2.boundingRect(contour)
-        img = cv2.rectangle(img, (x, y),
-                            (x + w, y + h),
-                            (0, 0, 255), 2)
+	area = cv2.contourArea(contour)
+	if (area > 1000):
+		x, y, w, h = cv2.boundingRect(contour)
+		img = cv2.rectangle(img, (x, y),
+							(x + w, y + h),
+							(0, 0, 255), 2)
 
-        cv2.putText(img, "Orange", (x, y),
-                    cv2.FONT_HERSHEY_SIMPLEX,
-                    1.0, (255, 0, 0))
+		cv2.putText(img, "Orange", (x, y),
+					cv2.FONT_HERSHEY_SIMPLEX,
+					1.0, (255, 0, 0))
 
-count = 0
 # white contour
 contours, hierarchy = cv2.findContours(white_mask,
-                                       cv2.RETR_TREE,
-                                       cv2.CHAIN_APPROX_SIMPLE)
+									   cv2.RETR_TREE,
+									   cv2.CHAIN_APPROX_SIMPLE)
 for pic, contour in enumerate(contours):
-    area = cv2.contourArea(contour)
-    if (area > 1600):
-        x, y, w, h = cv2.boundingRect(contour)
-        img = cv2.rectangle(img, (x, y),
-                            (x + w, y + h),
-                            (255, 0, 0), 2)
-        count = 1
-
-        cv2.putText(img, "White", (x, y),
-                    cv2.FONT_HERSHEY_SIMPLEX,
-                    1.0, (0, 0, 255))
-    if(count == 1):
-        break
+	area = cv2.contourArea(contour)
+	if(1500 < area < 44600):									
+		x, y, w, h = cv2.boundingRect(contour)
+		img = cv2.rectangle(img, (x, y),
+									(x + w, y + h),
+									(255, 255, 255), 2)			
+			
+		cv2.putText(img, "White", (x, y),
+					cv2.FONT_HERSHEY_SIMPLEX,
+					1.0, (255, 0, 0))
 
 cv2.imshow("TILES", img)
 
