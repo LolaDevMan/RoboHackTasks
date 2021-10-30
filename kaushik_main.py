@@ -93,11 +93,11 @@ for pic, contour in enumerate(contours):
 		x, y, w, h = cv2.boundingRect(contour)
 		img = cv2.rectangle(img, (x, y),
 							(x + w, y + h),
-							(0, 0, 255), 2)
+							(0, 255, 255), 2)
 
 		cv2.putText(img, "Yellow", (x, y),
 					cv2.FONT_HERSHEY_SIMPLEX, 1.0,
-					(0, 0, 255))
+					(0, 255, 255))
 
 # contour for green
 contours, hierarchy = cv2.findContours(green_mask,
@@ -110,7 +110,7 @@ for pic, contour in enumerate(contours):
 		x, y, w, h = cv2.boundingRect(contour)
 		img = cv2.rectangle(img, (x, y),
 							(x + w, y + h),
-							(0, 0, 255), 2)
+							(0, 255, 0), 2)
 
 		cv2.putText(img, "Green", (x, y),
 					cv2.FONT_HERSHEY_SIMPLEX,
@@ -126,7 +126,7 @@ for pic, contour in enumerate(contours):
 		x, y, w, h = cv2.boundingRect(contour)
 		img = cv2.rectangle(img, (x, y),
 							(x + w, y + h),
-							(0, 0, 255), 2)
+							(255, 0, 0), 2)
 
 		cv2.putText(img, "Blue", (x, y),
 					cv2.FONT_HERSHEY_SIMPLEX,
@@ -142,11 +142,11 @@ for pic, contour in enumerate(contours):
 		x, y, w, h = cv2.boundingRect(contour)
 		img = cv2.rectangle(img, (x, y),
 							(x + w, y + h),
-							(0, 0, 255), 2)
+							(0, 140, 255), 2)
 
 		cv2.putText(img, "Orange", (x, y),
 					cv2.FONT_HERSHEY_SIMPLEX,
-					1.0, (255, 0, 0))
+					1.0, (0, 140, 255))
 
 # white contour
 contours, hierarchy = cv2.findContours(white_mask,
@@ -162,7 +162,7 @@ for pic, contour in enumerate(contours):
 			
 		cv2.putText(img, "White", (x, y),
 					cv2.FONT_HERSHEY_SIMPLEX,
-					1.0, (255, 0, 0))
+					1.0, (0, 0, 0))
 
 cv2.imshow("TILES", img)
 
