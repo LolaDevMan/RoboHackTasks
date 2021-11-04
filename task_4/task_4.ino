@@ -3,8 +3,8 @@
 #include <ESP8266WebServer.h>
 
 // Replace with your network credentials
-const char* ssid = "";
-const char* password = "";
+const char* ssid = "MiA3";
+const char* password = "123456789";
 
 ESP8266WebServer server(80);   //instantiate server at port 80 (http port)
 
@@ -69,13 +69,13 @@ void Forward()
   digitalWrite(12, LOW);
   digitalWrite(15, LOW);
   Serial.println("Forward");
-  page2 = "<center><p> motors Status : Forward </p></center>";
+  page2 = "<center><p> motors Status : On</p></center>";
   server.send(200, "text/html", page + page2 + page3);
   delay(200);
 }
 void Left()
 {
-  page3 = "<center><p> motor 2 Status : Left</p></center>";
+  page3 = "<center><p> motor 2 Status : On</p></center>";
   server.send(200, "text/html", page + page2 + page3);
   digitalWrite(12, LOW);
   digitalWrite(14, HIGH);
@@ -86,7 +86,7 @@ void Left()
 }
 void Right()
 {
-  page3 = "<center><p> motor 2 Status : Right</p></center>";
+  page3 = "<center><p> motor 1 Status : On</p></center>";
   server.send(200, "text/html", page + page2 + page3);
   digitalWrite(12, LOW);
   digitalWrite(14, LOW);
@@ -97,7 +97,7 @@ void Right()
 }
 void Backward()
 {
-  page2 = "<center><p> motor 1 Status : Backward</p></center>";
+  page2 = "<center><p> motors Status : Backward On</p></center>";
   server.send(200, "text/html", page + page2 + page3);
   digitalWrite(14, LOW);
   digitalWrite(13, LOW);
